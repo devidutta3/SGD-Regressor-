@@ -1,11 +1,24 @@
-import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error
 
-X = np.array([[1], [2], [3]])
-y = np.array([12, 25, 40])
+X = [
+    [1],
+    [2],
+    [3]
+]
+
+Y = [
+    12,
+    25,
+    40
+]
 
 model = LinearRegression()
-model.fit(X, y)
+model.fit(X, Y)
 
-prediction = model.predict(np.array([[4]]))
-print(prediction)
+predictions = model.predict(X)
+
+mae = mean_absolute_error(Y, predictions)
+
+print("Predictions:", predictions)
+print("MAE:", mae)
