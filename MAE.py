@@ -1,23 +1,11 @@
+import numpy as np
 from sklearn.linear_model import LinearRegression
 
-hours = [
-    [1],
-    [2],
-    [3],
-]
-
-X = hours
-
-marks = [
-    12,
-    25,
-    40
-]
-
-Y = marks
+X = np.array([[1], [2], [3]])
+y = np.array([12, 25, 40])
 
 model = LinearRegression()
-model.fit(X, Y)
+model.fit(X, y)
 
-prediction = model.predict([[4]])
+prediction = model.predict(np.array([[4]]))
 print(prediction)
