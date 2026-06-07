@@ -62,3 +62,4 @@ pip install -r requirements.txt
 ## Notes
 
 This repository is a lightweight starting point for implementing an SGD regressor workflow. Customize `SGD_Regressor.py` with your own data, model configuration, and evaluation steps.
+<img src="https://raw.githubusercontent.com/devidutta3/SGD-Regressor-/refs/heads/main/SGD_M_B_Loss_Surface.png" alt="SGD Image">
