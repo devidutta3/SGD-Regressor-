@@ -1,52 +1,30 @@
-from sklearn.linear_model import LinearRegression
-# Dataset
-X = [1, 2, 3]
-Y = [50, 55, 60]
+import numpy as np
 
-# Initial Parameters
+X = np.array([1,2,3])
+Y = np.array([50,55,60])
+
 m = 1
 b = 45
 
-# Hyperparameter
-learning_rate = 0.01
-
-# Number of Iterations
 epochs = 10
+lr = 0.01
 
 for epoch in range(epochs):
 
-    # Predictions
-    predictions = []
-    for x in X:
-        predictions.append(m * x + b)
+    prediction = m * X + b
 
-    # Errors
-    errors = []
-    for actual, predicted in zip(Y, predictions):
-        errors.append(actual - predicted)
+    error = Y - prediction
 
-    # MSE Cost
-    mse = sum(error ** 2 for error in errors) / len(errors)
+    mse = np.mean(error**2)
 
-    # Gradient of m
-    gradient_m = -(2 / len(X)) * sum(
-        x * error for x, error in zip(X, errors)
-    )
+    derivative_m = -2 * np.sum(X * error) / len(X)
+    derivative_b = -2 * np.sum(error) / len(X)
 
-    # Gradient of b
-    gradient_b = -(2 / len(X)) * sum(errors)
+    m = m - lr * derivative_m
+    b = b - lr * derivative_b
 
-    # Gradient Descent Update
-    m = m - learning_rate * gradient_m
-    b = b - learning_rate * gradient_b
-
-    print(
-        f"Epoch {epoch+1}: "
-        f"Cost={mse:.2f}, "
-        f"m={m:.4f}, "
-        f"b={b:.4f}"
-    )
-
-print("\nFinal Parameters")
-print(f"m = {m:.4f}")
-print(f"b = {b:.4f}")
+    print(f"Epoch {epoch+1}")
+    print(f"Prediction: {prediction}")
+    print(f"MSE: {mse:.4f}")
+    print(f"m = {m:.4f}, b = {b:.4f}")
+    print()
