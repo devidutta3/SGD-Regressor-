@@ -22,6 +22,10 @@ Where:
 - `learning_rate` controls the step size.
 - `gradient` is the derivative of the loss function.
 
+
+<img src="https://miro.medium.com/v2/0*c_MqktGZe2_2Gb0u.jpg" alt="SGD Image">
+
+
 ## Why Use SGD?
 
 - Efficient for large datasets
